@@ -311,7 +311,10 @@ var defaultFcInitHandlerList = HandlerList{}.Append(
 	CreateBootSourceHandler,
 	AttachDrivesHandler,
 	CreateNetworkInterfacesHandler,
-	AddVsocksHandler,
+	// According to the firecracker OpenAPI specification, creating vsock devices is only a pre-boot request, so adding
+	// vsocks after loading a snapshot fails. It also seems redundant, since the VM loaded from a snapshot restores
+	// vsocks anyways (firecracker-microvm/firecracker-go-sdk#506).
+	// AddVsocksHandler,,
 	ConfigMmdsHandler,
 )
 

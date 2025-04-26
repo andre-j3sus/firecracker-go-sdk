@@ -30,6 +30,9 @@ import (
 // swagger:model SnapshotLoadParams
 type SnapshotLoadParams struct {
 
+	// Path to the disk device backing the container snapshot.
+	ContainerSnapshotPath string `json:"container_snapshot_path,omitempty"`
+
 	// Enable support for incremental (diff) snapshots by tracking dirty guest pages.
 	EnableDiffSnapshots bool `json:"enable_diff_snapshots,omitempty"`
 

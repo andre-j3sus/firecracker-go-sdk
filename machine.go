@@ -1171,11 +1171,12 @@ func (m *Machine) CreateSnapshot(ctx context.Context, memFilePath, snapshotPath 
 // loadSnapshot loads a snapshot of the VM
 func (m *Machine) loadSnapshot(ctx context.Context, snapshot *SnapshotConfig) error {
 	snapshotParams := &models.SnapshotLoadParams{
-		MemFilePath:         snapshot.MemFilePath,
-		MemBackend:          snapshot.MemBackend,
-		SnapshotPath:        &snapshot.SnapshotPath,
-		EnableDiffSnapshots: snapshot.EnableDiffSnapshots,
-		ResumeVM:            snapshot.ResumeVM,
+		MemFilePath:         	snapshot.MemFilePath,
+		MemBackend:          	snapshot.MemBackend,
+		SnapshotPath:        	&snapshot.SnapshotPath,
+		EnableDiffSnapshots: 	snapshot.EnableDiffSnapshots,
+		ResumeVM:            	snapshot.ResumeVM,
+		ContainerSnapshotPath:  snapshot.ContainerSnapshotPath,
 	}
 
 	if _, err := m.client.LoadSnapshot(ctx, snapshotParams); err != nil {
